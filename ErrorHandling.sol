@@ -26,7 +26,10 @@ contract errorHandling
     function Assert(address _add) public view returns (address)
     {
         assert(msg.sender==_add);
-        return _add;
+        {
+            return _add;
+        }
+        
     }
 
 }
