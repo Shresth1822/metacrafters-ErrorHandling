@@ -1,36 +1,32 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18;
+pragma solidity 0.8.18;
 
-contract ErrorHandling {
-    address public owner;
-    uint256 public value;
+//smart contract that implements the require(), assert() and revert() statements.
 
-    constructor() {
-        owner = msg.sender;
-        value = 200;
+contract errorHandling
+{
+    address owner = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+
+    function testRevert(uint _x) public pure returns (uint) 
+    {
+            if(_x<10)
+            {
+                revert("please enter a value bigger than 10");
+            }
+            return _x;
     }
 
-    function setValue(uint256 _newValue) external {
-        // Use require() to check conditions and revert if not met
-        require(msg.sender == owner, "Only the owner can set the value");
-        require(_newValue <= 100, "Value must be less than 100");
-
-        value = _newValue;
+    function testRequire(uint num, uint den) public pure returns (uint) 
+    {    
+        require(den != 0, "Denominator can't be zero");
+        uint _z = num / den;
+        return _z;
     }
 
-    function assertEx(uint256 _a, uint256 _b) external pure returns (uint256) {
-        // Use assert() to validate internal errors
-        assert(_a != _b); 
-
-        return _a + _b;
+    function testAssert(address _add) public view returns (address)
+    {
+        assert(msg.sender==_add);
+        return _add;
     }
 
-    function revertEx(uint256 _number) external pure returns (uint256) {
-        // Use revert() to deliberately revert the transaction
-        if (_number == 0) {
-            revert("Number cannot be zero");
-        }
-
-        return 10000 / _number;
-    }
 }
