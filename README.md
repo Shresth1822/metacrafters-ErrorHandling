@@ -16,23 +16,20 @@ Error handling is a critical aspect of smart contract development to ensure robu
 
 ## Functions
 
-## setValue
+##Revert
+-The Revert function allows for the deliberate use of the revert() statement to revert a transaction based on certain conditions.
+-If the input number is less than 100, the function will revert the transaction with a custom error message.
+-Otherwise, it returns the input number.
 
-The `setValue` function allows the owner of the contract to set the `value` within certain constraints.
-- It uses `require()` statements to check conditions before updating the `value`.
-- If the caller is not the owner, the function will revert with a custom error message.
-- If the new value is greater than 100, the function will revert with an error message.
+##Require
+-The Require function showcases the require() statement to validate conditions before executing a transaction.
+-The function checks if the denominator is not zero. If it's zero, the function will revert the transaction with an error message.
+-Then, it calculates and returns the result of the division.
 
-## assertEx
-
-The `assertEx` function showcases the use of the `assert()` statement to validate internal errors.
-- The function asserts that two input numbers are not equal. If they are equal, the assertion fails and the transaction is reverted.
-
-## revertEx
-
-The `revertEx` function demonstrates the deliberate use of the `revert()` statement to revert a transaction under certain conditions.
-- If the input number is 0, the function will revert the transaction with a custom error message.
-- Otherwise, it calculates and returns the result of `10000 / _number`.
+##Assert
+-The Assert function demonstrates the use of the assert() statement to validate assertions within the contract.
+-The function asserts that the caller of the function is the specified address. If this assertion fails, the transaction will be reverted.
+-If the assertion passes, the function returns the caller's address.
 
 ## Execution of the program
 - Copy the code from this Github Repo
