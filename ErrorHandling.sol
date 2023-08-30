@@ -9,7 +9,7 @@ contract errorHandling
 
     function Revert(uint _x) public pure returns (uint) 
     {
-            if(_x<10)
+            if(_x<100)
             {
                 revert("please enter a value bigger than 10");
             }
