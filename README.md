@@ -19,7 +19,7 @@ Error handling is a critical aspect of smart contract development to ensure robu
 ## Revert
 -The Revert function allows for the deliberate use of the revert() statement to revert a transaction based on certain conditions.
 -If the input number is less than 100, the function will revert the transaction with a custom error message.
--Otherwise, it returns the input number.
+-Otherwise, it returns the input number. 
 
 ## Require
 -The Require function showcases the require() statement to validate conditions before executing a transaction.
